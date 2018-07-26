@@ -36,3 +36,61 @@
     }
   }
 }
+
+//Menu Overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.95;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-nav {
+    padding: 0;
+    margin: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    float: right;
+    width: 50%;
+    height: 100vh;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+    text-align: center;
+
+    &.show {
+      //slide from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      //slide from right
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+  }
+}
+
+//delay each mav item slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
