@@ -29,6 +29,17 @@
   .menu-nav {
     font-size: 24px;
   }
+
+  .about-info {
+    grid-template-areas:
+      "bio-image"
+      "bio"
+      "info-1"
+      "info-2"
+      "info-3";
+
+    grid-template-columns: 1fr;
+  }
 }
 
 //smart phones
