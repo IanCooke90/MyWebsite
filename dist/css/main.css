@@ -55,6 +55,8 @@
     color: #fff;
     text-decoration: none;
     transition: all 0.5s ease-out; }
+  .menu:hover {
+    color: #eece1a; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.1s; }
@@ -67,6 +69,25 @@
 
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav {
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    font-size: 24px; } }
+
+@media screen and (max-width: 500px) {
+  main#home {
+    margin-top: 10vh; } }
 
 * {
   box-sizing: border-box; }
