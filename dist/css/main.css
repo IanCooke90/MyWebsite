@@ -9,7 +9,7 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #fff;
+    background: #000;
     transition: all 0.5s ease-out; }
   .menu-btn.close {
     transform: rotate(180deg); }
@@ -31,7 +31,7 @@
   .menu-nav {
     padding: 0;
     margin: 0;
-    background: #373737;
+    background: #d2d3d2;
     list-style: none;
     float: right;
     width: 50%;
@@ -52,11 +52,11 @@
     font-size: 30px;
     padding: 1rem 0;
     font-weight: 300;
-    color: #fff;
+    color: #000;
     text-decoration: none;
     transition: all 0.5s ease-out; }
-  .menu:hover {
-    color: #eece1a; }
+    .menu .nav-link:hover {
+      color: #fabc09; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.1s; }
@@ -74,8 +74,8 @@
   box-sizing: border-box; }
 
 body {
-  background: #444;
-  color: #fff;
+  background: #dfe0df;
+  color: #000;
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -92,7 +92,7 @@ body {
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: rgba(68, 68, 68, 0.9); }
+      background: rgba(223, 224, 223, 0.9); }
 
 h1,
 h2,
@@ -110,7 +110,7 @@ h3 {
     padding: 0.2rem, 1rem; }
 
 a {
-  color: #fff;
+  color: #000;
   text-decoration: none; }
 
 header {
@@ -119,7 +119,7 @@ header {
   width: 100%; }
 
 .text-secondary {
-  color: #eece1a; }
+  color: #fabc09; }
 
 main {
   padding: 4rem;
@@ -129,7 +129,7 @@ main {
     main .icons a {
       padding: 0.4rem; }
       main .icons a:hover {
-        color: #eece1a;
+        color: #fabc09;
         transition: all 0.5s ease-out; }
   main#home {
     overflow: hidden; }
@@ -144,27 +144,94 @@ main {
   .about-info .bio-image {
     grid-area: bio-image;
     margin: auto;
-    border: #eece1a 1.5px solid; }
+    border: #fabc09 1.5px solid; }
   .about-info .bio {
     grid-area: bio;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    /*
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 2.5px solid;
+    */ }
   .about-info .info-1 {
     grid-area: info-1; }
   .about-info .info-2 {
     grid-area: info-2; }
+    .about-info .info-2 .tech-icons {
+      display: grid;
+      grid-template-areas: "fa-html5 fa-css3-alt fa-js" "fa-sass fa-node fa-git";
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 30px;
+      justify-items: center;
+      padding-top: 50px; }
   .about-info .info-3 {
     grid-area: info-3; }
   .about-info .info {
-    background: #515151;
+    background: #ecedec;
     padding: 0.5rem;
-    border-bottom: #eece1a 2.5px solid; }
+    border-bottom: #fabc09 2.5px solid; }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; }
+  .projects img {
+    width: 100%;
+    border: 1.5px #fff solid; }
+    .projects img:hover {
+      opacity: 0.5;
+      border-color: #fabc09;
+      transition: all 0.5s ease-out; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2.5rem; }
+    .boxes div:hover {
+      color: #fabc09;
+      transition: all 0.5s ease-out; }
+    .boxes div a:hover {
+      color: #fabc09;
+      transition: all 0.5s ease-out; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: #fabc09;
+    color: #000; }
+
+.btn-dark {
+  background: #5e625e;
+  color: #fff; }
+
+.btn-light {
+  background: white;
+  color: #333; }
 
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: #2b2b2b;
-  color: set-trext-color(#444);
-  height: 60px; }
+  background: #c5c7c5;
+  color: set-trext-color(#dfe0df);
+  height: 60px;
+  min-width: 100%; }
+
+@media screen and (min-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 768px) {
   main {
@@ -173,6 +240,8 @@ main {
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); }
   ul.menu-nav {
     width: 100%;
     min-height: 0; }
@@ -185,5 +254,20 @@ main {
     grid-template-columns: 1fr; } }
 
 @media screen and (max-width: 500px) {
-  main#home {
-    margin-top: 10vh; } }
+  main#home h1 {
+    margin-top: 5vh; }
+  .projects {
+    grid-template-columns: 1fr; }
+  h1.lg-heading {
+    font-size: 2rem; }
+  h2.sm-heading {
+    font-size: 1.5rem; }
+  #about {
+    padding: 0.5rem;
+    padding-top: 4rem; }
+    #about .about-info .bio {
+      font-size: 1rem; }
+  .boxes div {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 0; } }

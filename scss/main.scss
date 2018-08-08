@@ -32,7 +32,7 @@ h3 {
 }
 
 a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
@@ -78,6 +78,7 @@ main {
     "bio-image bio bio"
     "info-1 info-2 info-3";
   grid-template-columns: repeat(3, 1fr);
+
   .bio-image {
     grid-area: bio-image;
     margin: auto;
@@ -87,6 +88,11 @@ main {
   .bio {
     grid-area: bio;
     font-size: 1.5rem;
+    /*
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 2.5px solid;
+    */
   }
 
   .info-1 {
@@ -94,6 +100,16 @@ main {
   }
   .info-2 {
     grid-area: info-2;
+    .tech-icons {
+      display: grid;
+      grid-template-areas:
+        "fa-html5 fa-css3-alt fa-js"
+        "fa-sass fa-node fa-git";
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 30px;
+      justify-items: center;
+      padding-top: 50px;
+    }
   }
   .info-3 {
     grid-area: info-3;
@@ -106,12 +122,80 @@ main {
   }
 }
 
+// Work/Projects
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+  img {
+    width: 100%;
+    border: 1.5px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+//contact page
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 1rem;
+
+  div {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2.5rem;
+
+    &:hover {
+      color: $secondary-color;
+      @include easeOut;
+    }
+
+    a:hover {
+      color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+// Button styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
 #main-footer {
   text-align: center;
   padding: 1rem;
   background: darken($primary-color, 10);
   color: set-trext-color($primary-color);
   height: 60px;
+  min-width: 100%;
 }
 
 @import "mobile";
